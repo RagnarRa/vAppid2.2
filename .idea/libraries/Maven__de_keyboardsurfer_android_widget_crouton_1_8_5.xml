@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: de.keyboardsurfer.android.widget:crouton:1.8.5">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/de/keyboardsurfer/android/widget/crouton/1.8.5/crouton-1.8.5.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/de/keyboardsurfer/android/widget/crouton/1.8.5/crouton-1.8.5-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/de/keyboardsurfer/android/widget/crouton/1.8.5/crouton-1.8.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
