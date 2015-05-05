@@ -22,4 +22,9 @@ public class EmvApplication extends Application {
 		sTypeface = Typeface.createFromAsset(getAssets(), "OCR-A.ttf");
 	}
 
+	public void tst()
+	{
+
+	}
+
 }
