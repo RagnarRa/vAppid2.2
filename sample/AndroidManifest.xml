@@ -79,16 +79,7 @@
             android:parentActivityName=".activity.MainMenuActivity" >
         </activity>
 
-        <activity
-            android:name=".activity.PayActivity"
-            android:label="@string/title_activity_pay"
-            android:parentActivityName=".activity.AddToCartActivity" >
-         </activity>
-        <activity
-            android:name=".activity.ManualPayByCardActivity"
-            android:label="@string/title_activity_manual_pay_by_card"
-            android:parentActivityName=".activity.PayActivity" >
-        </activity>
+
 
     </application>
 

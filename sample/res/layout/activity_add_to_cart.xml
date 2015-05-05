@@ -26,4 +26,10 @@
         android:layout_gravity="center"
         android:onClick="goPay"/>
 
+    <TextView
+        android:id="@+id/text_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
 </LinearLayout>
