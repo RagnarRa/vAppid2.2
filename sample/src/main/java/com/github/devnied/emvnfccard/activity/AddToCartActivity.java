@@ -20,7 +20,6 @@ public class AddToCartActivity extends Activity {
     public final static String EXTRA_CART_CONTENTS = "com.rbrjas.vappid.CART_CONTENTS";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        String test = "";
         prices = new ArrayList<Integer>();
 
         super.onCreate(savedInstanceState);
