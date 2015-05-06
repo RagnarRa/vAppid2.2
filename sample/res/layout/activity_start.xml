@@ -1,35 +1,53 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingLeft="32dp"
-    android:paddingRight="32dp"
-    android:paddingTop="32dp"
+
     android:weightSum="1">
 
     <!--
     <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
         android:layout_height="wrap_content" /> -->
 
-    <Button
+   <!-- <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/button_login"
         android:onClick="logIn"
         android:layout_gravity="center"
         />
+-->
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:src="@drawable/vappid_fullsize"
+        android:layout_weight="1"
+        android:background="#293B79"
+       />
+    <Button
+        android:id="@+id/login"
+        android:text="@string/button_login"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:onClick="logIn"
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/buttonshapeorange"
+        />
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/button_register"
-        android:onClick="registerUser"
-        android:layout_gravity="center"/>
+        android:id="@+id/signup"
+        android:text="@string/button_login"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:onClick="logIn"
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/buttonshapeblue"
+        />
 
-    <ImageView
-        android:layout_width="328dp"
-        android:layout_height="254dp"
-        android:src="@drawable/vappid_fullsize"
-        android:layout_weight="0.87" />
+
 
 </LinearLayout>
