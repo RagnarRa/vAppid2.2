@@ -32,7 +32,6 @@ public class AddToCartActivity extends Activity {
 
         TextView temp = (TextView) findViewById(R.id.text_total);
         temp.setText("Upphæð til greiðslu: " + total);
-
     }
 
     public void addToCart(View view) {
