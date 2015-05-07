@@ -74,7 +74,6 @@ public class LoginDialogFragment extends DialogFragment {
         // Get the layout inflater
         LayoutInflater inflater = getActivity().getLayoutInflater();
 
-        getDialog().setTitle("Innskráning");
 
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
