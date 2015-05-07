@@ -10,9 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.github.devnied.emvnfccard.R;
 import com.github.devnied.emvnfccard.adapter.MenuDrawerAdapter;
@@ -24,13 +22,12 @@ import com.github.devnied.emvnfccard.fragment.ViewPagerFragment;
 import com.github.devnied.emvnfccard.utils.ConstantUtils;
 
 import java.lang.ref.WeakReference;
-import java.util.ArrayList;
 
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 
 
-public class AddToCartActivity extends FragmentActivity implements AdapterView.OnItemClickListener, View.OnClickListener  {
-    ArrayList<Integer> prices;
+public class SimplePayActivity extends FragmentActivity implements AdapterView.OnItemClickListener, View.OnClickListener  {
+    //ArrayList<Integer> prices;
     Button button;
     /**
      * last selected Menu
@@ -65,20 +62,21 @@ public class AddToCartActivity extends FragmentActivity implements AdapterView.O
     public final static String EXTRA_CART_CONTENTS = "com.rbrjas.vappid.CART_CONTENTS";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        prices = new ArrayList<Integer>();
+        //prices = new ArrayList<Integer>();
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_to_cart);
-
+        setContentView(R.layout.activity_simple_pay);
+        /*
         Integer total = 0;
         for (Integer num : prices) {
             total += num;
         }
 
         TextView temp = (TextView) findViewById(R.id.text_total);
-        temp.setText("Upphæð til greiðslu: " + total);
+        temp.setText("Upphæð til greiðslu: " + total); */
 
 
+        /* Sidebar menu */
         // get ListView defined in activity_main.xml
         mDrawerListView = (ListView) findViewById(R.id.left_drawer);
 
@@ -141,12 +139,13 @@ public class AddToCartActivity extends FragmentActivity implements AdapterView.O
 
     }
 
+    /*
     public void addToCart(View view) {
         EditText editText = (EditText) findViewById(R.id.edit_price);
         Integer price = Integer.parseInt(editText.getText().toString());
         prices.add(price);
         editText.setText("");
-    }
+    } */
 
     public void goPay(View view) {
         Intent intent = new Intent(this, ScanActivity.class);
