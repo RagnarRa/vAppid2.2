@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">vAppið</string>
+    <string name="activity_name">vAppið</string>
+    
+    <!-- Msg -->
+    <string name="billing_success">Thanks for your donation!</string>
+    <string name="card_read">Card read</string>
+    <string name="card_reading">Reading in progress&#8230;</string>
+    <string name="card_deleted">Card data deleted</string>
+    <string name="card_reading_desc">Please do not remove or move card during reading.</string>
+    <string name="nfc_locked">NFC is locked on your card</string>
+    <string name="msg_nfc_disable">Please enable NFC and press back to return to this application.</string>
+    <string name="msg_activate_nfc">OK</string>
+    <string name="msg_info">Info</string>
+    <string name="donate_banner">Help us to improve this app, donate !</string>
+    
+    <!-- Error -->
+    <string name="error_communication_nfc">Please do not move card, try again !</string>
+    <string name="error_card_unknown">Unknown EMV card (Please send logs)</string>
+    <string name="error_link">No web browser found</string>
+    <string name="error_email">No email client found</string>
+    
+    <!-- Tabs -->
+    <string name="viewpager_carddetail">Card detail</string>
+    <string name="viewpager_transactions">Transactions</string>
+    <string name="viewpager_log">Log</string>
+    
+    <!-- Card Detail -->
+    <string name="paycard_back_text">Tap your NFC paycard \n to the back of your phone</string>
+    <string name="extended_card_detail_title">Extended card details</string>
+    <string name="card_representation_title">Card Representation</string>
+    
+    <string name="extended_title_AID">Card AID :</string>
+    <string name="extended_title_application_label">Application :</string>
+    <string name="extended_title_pin_try">Pin try left :</string>
+    <string name="extended_title_card_type">Card type :</string>
+    <string name="extended_card_holder_name">Holder name :</string>
+    <string name="extended_title_possible_bank">Card issuer :\n(possible)</string>
+    <string name="extended_title_times">Time(s)</string>
+    
+    <!-- Transaction -->
+    <string name="transaction_empty">Your card doesn\'t provided\ntransaction history</string>
+    
+    <!-- Transaction detail -->
+    <string name="transaction_type">Transaction type :</string>
+    <string name="transaction_cryptogram">Cryptogram :</string>
+    <string name="transaction_country">Terminal Country :</string>
+    <string name="transaction_unknown">Unknown</string>
+    
+    <!-- Transaction type -->
+    <string name="transaction_type_0">Purchase</string>
+    <string name="transaction_type_1">Cash advance</string>
+    <string name="transaction_type_9">Cash back</string>
+    <string name="transaction_type_32">Refund</string>
+    
+    <!-- Logs -->
+    <string name="mail_subject">[EMV Reader] Log report</string>
+    <string name="mail_popup_title">Send log by mail...</string>
+    <string name="mail_to">android@julien-millau.fr</string>
+    
+    
+    <!-- About -->
+    <string name="about_app_detail">This app was made to read public data on banking NFC cards compliants with EMV norm.</string>
+    <string name="about_source_detail">Source Code and documentation available on <a href="https://github.com/devnied/EMV-NFC-Paycard-Enrollment">Github</a>. Application written by <a href="http://julien-millau.fr">Julien Millau</a></string>
+    <string name="about_inapp_text">Help us to improve this app with donation</string>
+    <string name="about_title">About</string>
+    <string name="about_inApp">Donate</string>
+    
+    <!-- Navigation drawable -->
+    <string name="navigation_menu_open">Navigation menu open</string>
+    <string name="navigation_menu_close">Navigation menu close</string>
+    <string-array name="navigation_items">
+        <item>Þínar Síður</item>
+        <item>Stillingar</item>
+        <item>Fjáröflun</item>
+    </string-array>
+    
+    <!-- Preferences -->
+    <string name="general_category">General Preferences</string>
+    <string name="pref_save_read_card">Save card</string>
+    <string name="pref_sum_save_card">Save detail on file system</string>
+    <string name="pref_remove_all_stored_cards">Remove stored data</string>
+    
+        <!--  Strings for possible PreferenceActivity Back/Next buttons -->
+    <string name="back_button_label">Back</string>
+    <string name="next_button_label">Next</string>
+
+    <!-- Optional button to Skip a PreferenceActivity [CHAR LIMIT=20] -->
+    <string name="skip_button_label">Skip</string>
+
+
+
+    <!-- vAppið -->
+    <string name="hello_world">Hello world!</string>
+    <string name="button_login">Innskráning</string>
+    <string name="button_register">Nýskráning</string>
+    <string name="title_activity_register_user">Register User</string>
+    <string name="label_name">Nafn:</string>
+    <string name="label_ssid">Kennitala:</string>
+    <string name="label_phone">Sími:</string>
+    <string name="label_email">Netfang:</string>
+    <string name="label_bankinfo">Bankauppl.:</string>
+    <string name="label_pass">Leyninúmer:</string>
+    <string name="label_passconfirmed">Leyninr. staðfest:</string>
+    <string name="label_choosepass">Veldu þér 6 stafa leyninúmer.</string>
+    <string name="button_registration">Sækja um</string>
+    <string name="title_activity_login">Log In</string>
+    <string name="example_email">john@example.com</string>
+    <string name="title_activity_main_menu">Main Menu</string>
+    <string name="button_sell">Selja</string>
+    <string name="title_activity_add_to_cart">Add to Cart</string>
+    <string name="button_addtocart">Setja í körfu</string>
+    <string name="button_pay">Borga</string>
+    <string name="title_activity_pay">Payment</string>
+    <string name="button_scancard">Skanna kort</string>
+    <string name="button_entercardinfo">Slá inn kortaupplýsingar.</string>
+    <string name="button_back">Til baka</string>
+    <string name="title_activity_manual_pay_by_card">Card Info</string>
+    <string name="radio_credit">Kredit</string>
+    <string name="radio_debit">Debit</string>
+    <string name="label_cardholdername">Nafn:</string>
+    <string name="label_cardnumber">Kortanúmer:</string>
+    <string name="label_expirationdate">Gildistími:</string>
+    <string name="label_cvc">CVC:</string>
+    <string name="button_pay_manual">Greiða</string>
+    <string name="label_checkaccountnumber">Tékkaábyrgðanúmer:</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="username">Notandanafn:</string>
+    <string name="password">Lykilorð:</string>
+    <string name="login">Skrá inn</string>
+    <string name="cancel">Hætta við</string>
+</resources>
