@@ -1,16 +1,21 @@
 package com.github.devnied.emvnfccard.activity;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.View;
 
 import com.github.devnied.emvnfccard.R;
+import com.github.devnied.emvnfccard.dialog.LoginDialogFragment;
 
 //import android.support.v7.app.AppCompatActivity; //Notudum fyrst.. breyttum i extends Activity f. Theme.Holo
 
 
-public class MenuActivity extends Activity {
+public class MenuActivity extends FragmentActivity
+                          implements LoginDialogFragment.LoginDialogListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,28 +23,6 @@ public class MenuActivity extends Activity {
         setContentView(R.layout.activity_start);
     }
 
- /*   @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-*/
     public void registerUser(View view) {
         //Okkar context.. svo class a activity sem tekur vid..
         Intent intent = new Intent(MenuActivity.this, RegisterUserActivity.class);
@@ -47,7 +30,28 @@ public class MenuActivity extends Activity {
     }
 
     public void logIn(View view) {
+        Log.d("lol", "hhhiiiiiiiii");
+        /*
         Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent); */
+        LoginDialogFragment loginDialog = new LoginDialogFragment();
+        loginDialog.show(getFragmentManager(), "Login_Dialog");
+    }
+
+    // The dialog fragment receives a reference to this Activity through the
+    // Fragment.onAttach() callback, which it uses to call the following methods
+    // defined by the NoticeDialogFragment.NoticeDialogListener interface
+    @Override
+    public void onDialogPositiveClick(DialogFragment dialog) {
+        // User touched the dialog's positive button
+        Intent intent = new Intent(this, AddToCartActivity.class);
         startActivity(intent);
+        Log.d("whyy", "Hi");
+    }
+
+    @Override
+    public void onDialogNegativeClick(DialogFragment dialog) {
+        // User touched the dialog's negative button
+        Log.d("waii", "Hello");
     }
 }

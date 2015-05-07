@@ -41,7 +41,7 @@
         android:text="@string/button_register"
         android:textColor="#FFFFFF"
         android:textSize="60sp"
-        android:onClick="logIn"
+        android:onClick="registerUser"
         android:layout_width="fill_parent"
         android:layout_height="80dp"
         android:layout_gravity="bottom"
