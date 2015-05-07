@@ -71,9 +71,11 @@
     <string name="navigation_menu_open">Navigation menu open</string>
     <string name="navigation_menu_close">Navigation menu close</string>
     <string-array name="navigation_items">
-        <item>Cards details</item>
-        <item>Configuration</item>
-        <item>About</item>
+
+        <item>Karfan</item>
+        <item>Fjáröflun</item>
+
+        <item>Um okkur</item>
     </string-array>
     
     <!-- Preferences -->
