@@ -4,7 +4,7 @@
         android:radius="0dp"
         />
     <solid
-        android:color="#ED6316"/>
+        android:color="@color/valitor_orange"/>
     <size
         android:width="270dp"
         android:height="60dp"
