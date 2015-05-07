@@ -14,6 +14,8 @@ import com.github.devnied.emvnfccard.activity.IContentActivity;
 import com.github.devnied.emvnfccard.adapter.ViewPagerAdapter;
 import com.github.devnied.emvnfccard.fragment.viewPager.IFragment;
 import com.github.devnied.emvnfccard.fragment.viewPager.impl.CardDetailFragment;
+import com.github.devnied.emvnfccard.fragment.viewPager.impl.LogFragment;
+import com.github.devnied.emvnfccard.fragment.viewPager.impl.TransactionHistoryFragment;
 import com.github.devnied.emvnfccard.model.EmvTransactionRecord;
 import com.github.devnied.emvnfccard.view.SlidingTabLayout;
 
@@ -103,7 +105,7 @@ public class ViewPagerFragment extends Fragment implements IRefreshable {
 
 	@Override
 	public void update() {
-		/*for (IFragment frag : fragments) {
+		for (IFragment frag : fragments) {
 			if (frag instanceof LogFragment) {
 				//((LogFragment) frag).updateLog(mContentActivity.getLog());
 			} else if (frag instanceof CardDetailFragment) {
@@ -113,7 +115,7 @@ public class ViewPagerFragment extends Fragment implements IRefreshable {
 					//	.getListTransactions() : null);
 			}
 		}
-*/		if (mViewPagerAdapter != null) {
+		if (mViewPagerAdapter != null) {
 			if (getActivity() != null) {
 				mViewPagerAdapter.notifyDataSetChanged();
 			}
