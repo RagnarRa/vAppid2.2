@@ -77,7 +77,7 @@ public class AddToCartActivity extends FragmentActivity implements AdapterView.O
 
         TextView temp = (TextView) findViewById(R.id.text_total);
         temp.setText("Upphæð til greiðslu: " + total);
-<<<<<<< HEAD
+
 
         // get ListView defined in activity_main.xml
         mDrawerListView = (ListView) findViewById(R.id.left_drawer);
@@ -138,8 +138,7 @@ public class AddToCartActivity extends FragmentActivity implements AdapterView.O
         if (mDrawerListView != null) {
             mDrawerListView.performItemClick(mDrawerListView, 2, mDrawerListView.getItemIdAtPosition(2));
         }
-=======
->>>>>>> aa24abc6a8b37090980604bc554be2b99f3713fa
+
     }
 
     public void addToCart(View view) {
