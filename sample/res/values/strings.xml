@@ -129,6 +129,8 @@
 
     <string name="username">Notandanafn:</string>
     <string name="password">Lykilorð:</string>
-    <string name="login">Log in</string>
-    <string name="cancel">Cancel</string>
+    <string name="login">Innskrá</string>
+    <string name="cancel">Hætta við</string>
+    <string name="register">Nýskrá</string>
+    <string name="dialog_login_title">Innskráning</string>
 </resources>

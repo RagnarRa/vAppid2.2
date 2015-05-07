@@ -46,6 +46,7 @@ public class LoginDialogFragment extends DialogFragment {
     public interface LoginDialogListener {
         public void onDialogPositiveClick(DialogFragment dialog);
         public void onDialogNegativeClick(DialogFragment dialog);
+        public void onDialogNeutralClick(DialogFragment dialog);
     }
 
     // Use this instance of the interface to deliver action events
@@ -90,6 +91,12 @@ public class LoginDialogFragment extends DialogFragment {
                     public void onClick(DialogInterface dialog, int id) {
                         // Send the negative button event back to the host activity
                         mListener.onDialogNegativeClick(LoginDialogFragment.this);
+                    }
+                })
+                .setNeutralButton(R.string.register, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // Send the negative button event back to the host activity
+                        mListener.onDialogNeutralClick(LoginDialogFragment.this);
                     }
                 });
         return builder.create();

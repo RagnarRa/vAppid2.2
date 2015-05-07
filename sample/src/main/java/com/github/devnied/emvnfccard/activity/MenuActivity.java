@@ -54,4 +54,10 @@ public class MenuActivity extends FragmentActivity
         // User touched the dialog's negative button
         Log.d("waii", "Hello");
     }
+
+    @Override
+    public void onDialogNeutralClick(DialogFragment dialog) {
+        Intent intent = new Intent(this, RegisterUserActivity.class);
+        startActivity(intent);
+    }
 }
