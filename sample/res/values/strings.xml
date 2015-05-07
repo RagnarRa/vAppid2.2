@@ -71,9 +71,9 @@
     <string name="navigation_menu_open">Navigation menu open</string>
     <string name="navigation_menu_close">Navigation menu close</string>
     <string-array name="navigation_items">
-        <item>Cards details</item>
-        <item>Configuration</item>
-        <item>About</item>
+        <item>Þínar Síður</item>
+        <item>Stillingar</item>
+        <item>Fjáröflun</item>
     </string-array>
     
     <!-- Preferences -->
@@ -129,6 +129,6 @@
 
     <string name="username">Notandanafn:</string>
     <string name="password">Lykilorð:</string>
-    <string name="login">Log in</string>
-    <string name="cancel">Cancel</string>
+    <string name="login">Skrá inn</string>
+    <string name="cancel">Hætta við</string>
 </resources>
