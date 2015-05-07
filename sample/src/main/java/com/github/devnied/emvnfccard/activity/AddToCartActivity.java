@@ -66,6 +66,7 @@ public class AddToCartActivity extends FragmentActivity implements AdapterView.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         prices = new ArrayList<Integer>();
+        String name = "";
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_to_cart);
