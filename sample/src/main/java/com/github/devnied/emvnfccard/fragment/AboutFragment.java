@@ -51,7 +51,7 @@ public class AboutFragment extends Fragment {
 	@Override
 	public void onViewCreated(final View view, final Bundle savedInstanceState) {
 
-		TextView githubContent = (TextView) view.findViewById(R.id.about_github_content);
+		TextView githubContent = (TextView) view.findViewById(R.id.about_contact_info);
 		if (githubContent != null) {
 			githubContent.setMovementMethod(new MovementCheck());
 		}
