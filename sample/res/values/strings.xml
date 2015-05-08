@@ -139,4 +139,5 @@
     <string name="cancel">Hætta við</string>
     <string name="register">Nýskrá</string>
     <string name="dialog_login_title">Innskráning</string>
+    <string name="title_simple_pay">Simple Pay Activity</string>
 </resources>
