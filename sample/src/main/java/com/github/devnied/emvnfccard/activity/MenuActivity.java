@@ -44,7 +44,7 @@ public class MenuActivity extends FragmentActivity
     @Override
     public void onDialogPositiveClick(DialogFragment dialog) {
         // User touched the dialog's positive button
-        Intent intent = new Intent(this, AddToCartActivity.class);
+        Intent intent = new Intent(this, SimplePayActivity.class);
         startActivity(intent);
         Log.d("whyy", "Hi");
     }
