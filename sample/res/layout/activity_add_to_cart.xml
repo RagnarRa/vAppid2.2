@@ -21,37 +21,156 @@
             android:layout_marginRight="15dp">
             <EditText
                 android:id="@+id/edit_price"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="95dp"
                 android:hint="Upphæð:"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:layout_marginBottom="50dp" />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/round_button"
+                android:text="1"
+                android:textColor="@color/black"
+                android:onClick="numberOne"
+
+                />
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/round_button"
+                android:text="2"
+                android:textColor="@color/black"
+                android:layout_marginLeft="40dp"
+                android:onClick="numberTwo"
+                />
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/round_button"
+                android:text="3"
+                android:textColor="@color/black"
+                android:layout_marginLeft="40dp"
+                android:onClick="numberThree"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="220dp"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/round_button"
+                android:text="4"
+                android:textColor="@color/black"
+                android:onClick="numberOne"
+
+                />
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/round_button"
+                android:text="5"
+                android:textColor="@color/black"
+                android:layout_marginLeft="40dp"
+                android:onClick="numberTwo"
+                />
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/round_button"
+                android:text="6"
+                android:textColor="@color/black"
+                android:layout_marginLeft="40dp"
+                android:onClick="numberThree"
+                />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp">
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/button_addtocart"
-                android:onClick="addToCart"/>
+            android:layout_marginTop="290dp"
+            android:gravity="center_horizontal">
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/button_pay"
-                android:onClick="goPay"/>
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/round_button"
+                android:text="7"
+                android:textColor="@color/black"
+                android:onClick="numberOne"
 
-            <TextView
-                android:id="@+id/text_total"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
+                />
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/round_button"
+                android:text="8"
+                android:textColor="@color/black"
+                android:layout_marginLeft="40dp"
+                android:onClick="numberTwo"
+                />
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/round_button"
+                android:text="9"
+                android:textColor="@color/black"
+                android:layout_marginLeft="40dp"
+                android:onClick="numberThree"
+                />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="360dp"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/round_button"
+                android:text="0"
+                android:textColor="@color/black"
+                android:onClick="numberThree"
+                />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="360dp"
+            android:gravity="bottom"
+            >
+
+            <Button
+                android:id="@+id/quickpay"
+                android:text="Greiða"
+                android:textColor="@color/black"
+                android:textSize="60sp"
+                android:onClick="quickPay"
+                android:layout_width="fill_parent"
+                android:layout_height="80dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/buttonshapeorange"
+                />
+        </LinearLayout>
 
         <FrameLayout
         android:id="@+id/content_frame"

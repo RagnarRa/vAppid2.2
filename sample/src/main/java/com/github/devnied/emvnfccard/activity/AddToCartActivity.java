@@ -12,7 +12,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.github.devnied.emvnfccard.R;
 import com.github.devnied.emvnfccard.adapter.MenuDrawerAdapter;
@@ -75,8 +74,8 @@ public class AddToCartActivity extends FragmentActivity implements AdapterView.O
             total += num;
         }
 
-        TextView temp = (TextView) findViewById(R.id.text_total);
-        temp.setText("Upphæð til greiðslu: " + total);
+       // TextView temp = (TextView) findViewById(R.id.text_total);
+        //temp.setText("Upphæð til greiðslu: " + total);
 
 
         // get ListView defined in activity_main.xml
