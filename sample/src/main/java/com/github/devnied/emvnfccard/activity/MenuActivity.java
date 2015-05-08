@@ -1,5 +1,6 @@
 package com.github.devnied.emvnfccard.activity;
 
+import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
