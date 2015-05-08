@@ -65,6 +65,7 @@ public class AboutFragment extends Fragment {
 			Log.e(AboutFragment.class.getName(), "Application version not found");
 		}
 
+
 		// Add inApp fragment
 		//View billingView = view.findViewById(R.id.about_inapp_content);
 		//if (billingView != null) {
@@ -72,4 +73,7 @@ public class AboutFragment extends Fragment {
 		//	getChildFragmentManager().beginTransaction().replace(R.id.about_inapp_content, new BillingFragment()).commit();
 		//}
 	}
+
+	public void test()
+	{}
 }
