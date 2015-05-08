@@ -261,6 +261,9 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
 
 
 
-
+    public void quickPay(View view) {
+        Intent intent = new Intent(this, ScanActivity.class);
+        startActivity(intent);
+    }
 
 }
