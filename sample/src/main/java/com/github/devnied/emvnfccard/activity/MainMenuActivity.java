@@ -12,7 +12,6 @@ public class MainMenuActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //Change
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
     }
@@ -21,7 +20,7 @@ public class MainMenuActivity extends Activity {
 
 
     public void doSell(View view) {
-        Intent intent = new Intent(this, AddToCartActivity.class);
+        Intent intent = new Intent(this, SimplePayActivity.class);
         startActivity(intent);
     }
 }

@@ -1,6 +1,5 @@
 package com.github.devnied.emvnfccard.activity;
 
-import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -44,7 +43,7 @@ public class MenuActivity extends FragmentActivity
     @Override
     public void onDialogPositiveClick(DialogFragment dialog) {
         // User touched the dialog's positive button
-        Intent intent = new Intent(this, AddToCartActivity.class);
+        Intent intent = new Intent(this, SimplePayActivity.class);
         startActivity(intent);
         Log.d("whyy", "Hi");
     }

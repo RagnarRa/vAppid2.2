@@ -74,8 +74,9 @@
         </activity>
 
         <activity
-            android:name=".activity.AddToCartActivity"
-            android:label="@string/title_activity_add_to_cart">
+            android:name=".activity.SimplePayActivity"
+            android:label="Simple Pay">
+            android:windowSoftInputMode="stateHidden"
         </activity>
 
 

@@ -61,11 +61,15 @@
     
     
     <!-- About -->
-    <string name="about_app_detail">This app was made to read public data on banking NFC cards compliants with EMV norm.</string>
+    <string name="about_app_detail">Þetta app er búið til af vAppinu til að taka við greiðslukortum á öruggan hátt í gegnum símann þinn.</string>
     <string name="about_source_detail">Source Code and documentation available on <a href="https://github.com/devnied/EMV-NFC-Paycard-Enrollment">Github</a>. Application written by <a href="http://julien-millau.fr">Julien Millau</a></string>
-    <string name="about_inapp_text">Help us to improve this app with donation</string>
-    <string name="about_title">About</string>
-    <string name="about_inApp">Donate</string>
+    <string name="about_inapp_text">Við erum teymi af 7 manneskjum með ástríðu og áhuga fyrir því að gera einstaklingum kleift að taka við kortagreiðslum á
+    einfaldan, fljótlegan og öruggan hátt! Þetta app er afurð úr 3 vikna áfanga úr HR.</string>
+    <string name="about_title">Um vAppið</string>
+    <string name="about_inApp">Um okkur</string>
+    <string name="about_contact_info">Hafa samband</string>
+    <string name="about_full_contact">Hægt er að hafa samband við okkur með að hringja í þjónustusímann 1234567 eða með að senda tölvupóst á
+    netfangið adstod@vappid.is</string>
     
     <!-- Navigation drawable -->
     <string name="navigation_menu_open">Navigation menu open</string>
