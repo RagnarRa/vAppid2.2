@@ -32,7 +32,7 @@ public class AboutFragment extends Fragment {
 	 */
 	private class MovementCheck extends LinkMovementMethod {
 
-		@Override
+		/*@Override
 		public boolean onTouchEvent(final TextView widget, final Spannable buffer, final MotionEvent event) {
 			try {
 				return super.onTouchEvent(widget, buffer, event);
@@ -40,7 +40,7 @@ public class AboutFragment extends Fragment {
 				CroutonUtils.display(getActivity(), getText(R.string.error_link), CoutonColor.BLACK);
 			}
 			return false;
-		}
+		}*/
 	}
 
 	@Override
@@ -51,7 +51,7 @@ public class AboutFragment extends Fragment {
 	@Override
 	public void onViewCreated(final View view, final Bundle savedInstanceState) {
 
-		TextView githubContent = (TextView) view.findViewById(R.id.about_github_content);
+		TextView githubContent = (TextView) view.findViewById(R.id.about_contact_info);
 		if (githubContent != null) {
 			githubContent.setMovementMethod(new MovementCheck());
 		}
@@ -66,10 +66,10 @@ public class AboutFragment extends Fragment {
 		}
 
 		// Add inApp fragment
-		View billingView = view.findViewById(R.id.about_inapp_content);
-		if (billingView != null) {
-			billingView.setVisibility(View.VISIBLE);
-			getChildFragmentManager().beginTransaction().replace(R.id.about_inapp_content, new BillingFragment()).commit();
-		}
+		//View billingView = view.findViewById(R.id.about_inapp_content);
+		//if (billingView != null) {
+		//	billingView.setVisibility(View.VISIBLE);
+		//	getChildFragmentManager().beginTransaction().replace(R.id.about_inapp_content, new BillingFragment()).commit();
+		//}
 	}
 }
