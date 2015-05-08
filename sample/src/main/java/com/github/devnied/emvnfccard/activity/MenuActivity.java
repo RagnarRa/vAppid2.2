@@ -44,7 +44,7 @@ public class MenuActivity extends FragmentActivity
     public void onDialogPositiveClick(DialogFragment dialog) {
         // User touched the dialog's positive button
         Intent intent = new Intent(this, SimplePayActivity.class);
-        startActivity(intent);
+        this.startActivity(intent);
         Log.d("whyy", "Hi");
     }
 
