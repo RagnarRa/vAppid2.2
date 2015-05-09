@@ -79,6 +79,11 @@
             android:windowSoftInputMode="stateHidden"
         </activity>
 
+        <activity
+            android:name=".activity.ManualPayByCardActivity"
+            android:label="Manual Pay By Card">
+            android:windowSoftInputMode="stateHidden"
+        </activity>
 
 
     </application>

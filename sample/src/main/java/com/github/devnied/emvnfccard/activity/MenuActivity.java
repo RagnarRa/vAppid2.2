@@ -30,7 +30,6 @@ public class MenuActivity extends FragmentActivity
     }
 
     public void logIn(View view) {
-        Log.d("lol", "hhhiiiiiiiii");
         /*
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent); */
@@ -46,13 +45,11 @@ public class MenuActivity extends FragmentActivity
         // User touched the dialog's positive button
         Intent intent = new Intent(this, SimplePayActivity.class);
         startActivity(intent);
-        Log.d("whyy", "Hi");
     }
 
     @Override
     public void onDialogNegativeClick(DialogFragment dialog) {
         // User touched the dialog's negative button
-        Log.d("waii", "Hello");
     }
 
     @Override

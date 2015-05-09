@@ -16,6 +16,7 @@ import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -544,4 +545,8 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 		return lastAts;
 	}
 
+    public void enterCardInfo(View view) {
+        Intent intent = new Intent(this, ManualPayByCardActivity.class);
+        startActivity(intent);
+    }
 }

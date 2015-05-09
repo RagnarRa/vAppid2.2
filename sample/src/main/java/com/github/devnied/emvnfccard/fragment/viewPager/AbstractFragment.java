@@ -1,6 +1,8 @@
 package com.github.devnied.emvnfccard.fragment.viewPager;
 
 import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.View;
 
 /**
  * Abstract fragment
@@ -49,5 +51,4 @@ public abstract class AbstractFragment extends Fragment implements IFragment {
 	public boolean isEnable() {
 		return mEnable;
 	}
-
 }

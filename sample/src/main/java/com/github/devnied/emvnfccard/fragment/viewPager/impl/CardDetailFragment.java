@@ -2,6 +2,7 @@ package com.github.devnied.emvnfccard.fragment.viewPager.impl;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -210,5 +211,4 @@ public class CardDetailFragment extends AbstractFragment {
 	public void setCard(final EmvCard mCard) {
 		this.mCard = mCard;
 	}
-
 }
