@@ -23,6 +23,7 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.devnied.emvnfccard.BuildConfig;
@@ -71,7 +72,7 @@ import fr.devnied.bitlib.BytesUtils;
  */
 @SuppressLint("InlinedApi")
 public class ScanActivity extends FragmentActivity implements OnItemClickListener, IContentActivity, OnClickListener {
-
+    String total;
 	/**
 	 * Nfc utils
 	 */
@@ -140,6 +141,7 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+        Intent intent = getIntent();
 
 		if (Build.VERSION.SDK_INT >= 19) {
 			// create our manager instance after the content view is set
@@ -190,6 +192,11 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 
 
 		}
+
+        /* Tharf ad access-a ur fragment..
+        total = intent.getStringExtra(SimplePayActivity.EXTRA_PRICE);
+        TextView text = (TextView) findViewById(R.id.text_total);
+        text.setText("Upphæð: " + total); */
 	}
 
 	/**
@@ -456,7 +463,7 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 
 	@Override
 	public void onItemClick(final AdapterView<?> parent, final View view, final int position, final long id) {
-		if (mLastSelectedMenu != position) {
+        if (mLastSelectedMenu != position) {
 			Fragment fragment = null;
 			switch (position) {
 			case ConstantUtils.CARDS_DETAILS:
@@ -472,6 +479,7 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 			default:
 				break;
 			}
+            //Hendum basically thessu fragment inn i stad thess sem er fyrir..
 			if (fragment != null) {
 				getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, fragment).commit();
 			}

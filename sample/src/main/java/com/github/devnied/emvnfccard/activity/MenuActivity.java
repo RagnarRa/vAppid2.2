@@ -25,8 +25,11 @@ public class MenuActivity extends FragmentActivity
 
     public void registerUser(View view) {
         //Okkar context.. svo class a activity sem tekur vid..
+        /*
         Intent intent = new Intent(MenuActivity.this, RegisterUserActivity.class);
-        startActivity(intent); //Kveikjum a activity..
+        startActivity(intent); //Kveikjum a activity.. */
+        Intent intent = new Intent(this, CartActivity.class);
+        startActivity(intent);
     }
 
     public void logIn(View view) {

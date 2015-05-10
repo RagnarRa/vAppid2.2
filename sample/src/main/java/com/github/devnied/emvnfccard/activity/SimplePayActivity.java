@@ -33,6 +33,7 @@ import de.keyboardsurfer.android.widget.crouton.Crouton;
 
 public class SimplePayActivity extends FragmentActivity implements AdapterView.OnItemClickListener, View.OnClickListener  {
     ArrayList<Integer> price = new ArrayList<Integer>();
+    public final static String EXTRA_PRICE = "com.github.devnied.emvnfccard.PRICE";
     Button oneButton, twoButton, threeButton, fourButton, fiveButton, sixButton, sevenButton, eightButton, nineButton, zeroButton, back;
     /**
      * last selected Menu
@@ -179,15 +180,11 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
                 break;
         }
         TextView editText = (TextView) findViewById(R.id.edit_price);
-        for (int i = 0; i < price.size(); i++){
-            String n = price.get(i).toString();
-            editText = (TextView) findViewById(R.id.edit_price);
-            editText.append(n);
-            price.clear();
-        }
 
-
-
+        String n = price.get(0).toString();
+        editText = (TextView) findViewById(R.id.edit_price);
+        editText.append(n);
+        price.clear();
     }
 
     @Override
@@ -221,11 +218,11 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
 
 
 
-
+    /*
     public void goPay(View view) {
         Intent intent = new Intent(this, ScanActivity.class);
         startActivity(intent);
-    }
+    } */
 
     @Override
     public void onItemClick(final AdapterView<?> parent, final View view, final int position, final long id) {
@@ -263,6 +260,8 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
 
     public void quickPay(View view) {
         Intent intent = new Intent(this, ScanActivity.class);
+        String price = ((TextView) findViewById(R.id.edit_price)).getText().toString();
+        intent.putExtra(EXTRA_PRICE, price);
         startActivity(intent);
     }
 

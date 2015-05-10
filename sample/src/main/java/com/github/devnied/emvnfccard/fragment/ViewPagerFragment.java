@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,7 +66,6 @@ public class ViewPagerFragment extends Fragment implements IRefreshable {
 		if (mContentActivity.getCard() != null) {
 			transactions = mContentActivity.getCard().getListTransactions();
 		}
-
 		// Add fragments
 		fragments.add(CardDetailFragment.newInstance(mContentActivity.getCard(), getString(R.string.viewpager_carddetail)));
 		//fragments.add(TransactionHistoryFragment.newInstance(transactions, getString(R.string.viewpager_transactions)));

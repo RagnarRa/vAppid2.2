@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.github.devnied.emvnfccard.EmvApplication;
 import com.github.devnied.emvnfccard.R;
+import com.github.devnied.emvnfccard.activity.SimplePayActivity;
 import com.github.devnied.emvnfccard.activity.testActivity;
 import com.github.devnied.emvnfccard.fragment.viewPager.AbstractFragment;
 import com.github.devnied.emvnfccard.fragment.viewPager.IFragment;
@@ -114,6 +115,10 @@ public class CardDetailFragment extends AbstractFragment {
 		// Update content
 		updateContent();
 
+        /*
+        Intent intent = getIntent();
+        String total = intent.getStringExtra(SimplePayActivity.EXTRA_PRICE); */
+        //TextView text = (TextView) view.findViewById(R.id.text_total);
 	}
 
 	/**
