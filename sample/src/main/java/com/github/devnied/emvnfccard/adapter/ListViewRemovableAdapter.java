@@ -1,11 +1,14 @@
 package com.github.devnied.emvnfccard.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
@@ -13,6 +16,7 @@ import com.github.devnied.emvnfccard.R;
 import com.github.devnied.emvnfccard.activity.CartActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Ragnar on 5.5.2015.

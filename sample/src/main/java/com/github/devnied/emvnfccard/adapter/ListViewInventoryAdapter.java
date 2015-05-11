@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
@@ -19,8 +21,9 @@ import java.util.ArrayList;
  * Created by Ragnar on 5.5.2015.
  *
  */
-public class ListViewInventoryAdapter extends BaseAdapter implements ListAdapter {
-    private ArrayList<String> list = new ArrayList<String>();
+public class ListViewInventoryAdapter extends BaseAdapter implements ListAdapter, Filterable {
+    private ArrayList<String> list;
+    private ArrayList<String> originalList; //Notad f. filtering
     private Context context;
 
 
@@ -28,6 +31,7 @@ public class ListViewInventoryAdapter extends BaseAdapter implements ListAdapter
     public ListViewInventoryAdapter(ArrayList<String> list, Context context) {
         this.list = list;
         this.context = context;
+        this.originalList = list;
     }
 
     @Override
@@ -79,5 +83,49 @@ public class ListViewInventoryAdapter extends BaseAdapter implements ListAdapter
         /*btnAddItem.setOnClickListener(((CartActivity)this.context).meow); */
 
         return view;
+    }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @SuppressWarnings("unchecked")
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                //Log.d(Constants.TAG, "**** PUBLISHING RESULTS for: " + constraint);
+                //myData = (List<MyDataType>) results.values;
+                list = (ArrayList<String>) results.values;
+                ListViewInventoryAdapter.this.notifyDataSetChanged();
+            }
+
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                //Log.d(Constants.TAG, "**** PERFORM FILTERING for: " + constraint);
+                //List<MyDataType> filteredResults = getFilteredResults(constraint);
+                ArrayList<String> filteredResults = getFilteredResults(constraint);
+
+                FilterResults results = new FilterResults();
+                results.values = filteredResults;
+
+                return results;
+            }
+
+            private ArrayList<String> getFilteredResults(CharSequence constraint) {
+                ArrayList<String> newList = new ArrayList<String>();
+
+                if (constraint.toString().isEmpty()) {
+                    newList = originalList;
+                }
+                else {
+                    String searchString = constraint.toString().toLowerCase();
+                    for (int i = 0; i < originalList.size(); i++) {
+                        if (originalList.get(i).toLowerCase().startsWith(searchString)) {
+                            newList.add(originalList.get(i));
+                        }
+                    }
+                }
+
+                return newList;
+            }
+        };
     }
 }

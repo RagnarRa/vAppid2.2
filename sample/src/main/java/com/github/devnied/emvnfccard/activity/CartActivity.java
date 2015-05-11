@@ -3,6 +3,8 @@ package com.github.devnied.emvnfccard.activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -41,7 +43,7 @@ public class CartActivity extends ListActivity {
         adapter = new ListViewRemovableAdapter(listItems, this, prices, quantities);
         setListAdapter(adapter);
 
-
+        //Set up the inventory adapter..
         inventoryItems = new ArrayList<String>();
         inventoryItems.add("Bindi 3000");
         inventoryItems.add("Slaufa 3500");
@@ -50,7 +52,9 @@ public class CartActivity extends ListActivity {
         ListView lwInventory = (ListView) findViewById(R.id.inventory_list);
         lwInventory.setAdapter(inventoryAdapter);
 
-
+        //Tengja filter
+        EditText filter = (EditText) findViewById(R.id.edit_filter);
+        filter.addTextChangedListener(searchTextWatcher);
         /*
         EditText qty = (EditText) findViewById(R.id.quantity);
         qty.setText("1"); */
@@ -143,5 +147,23 @@ public class CartActivity extends ListActivity {
 
         return -1;
     }
+
+    private TextWatcher searchTextWatcher = new TextWatcher() {
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            // ignore
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            // ignore
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            //Log.d(Constants.TAG, "*** Search value changed: " + s.toString());
+            inventoryAdapter.getFilter().filter(s.toString());
+        }
+    };
 }
 
