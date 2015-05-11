@@ -10,6 +10,7 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.github.devnied.emvnfccard.R;
+import com.github.devnied.emvnfccard.activity.CartActivity;
 
 import java.util.ArrayList;
 
@@ -72,6 +73,7 @@ public class ListViewRemovableAdapter extends BaseAdapter implements ListAdapter
                 prices.remove(position);
                 quantities.remove(position);
                 notifyDataSetChanged();
+                ((CartActivity) context).recalculateTotal();
             }
         });
 
