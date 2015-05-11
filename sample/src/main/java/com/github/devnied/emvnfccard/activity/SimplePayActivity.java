@@ -12,7 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -22,6 +22,8 @@ import com.github.devnied.emvnfccard.fragment.AboutFragment;
 import com.github.devnied.emvnfccard.fragment.BillingFragment;
 import com.github.devnied.emvnfccard.fragment.ConfigurationFragment;
 import com.github.devnied.emvnfccard.fragment.IRefreshable;
+import com.github.devnied.emvnfccard.fragment.LogOutFragment;
+import com.github.devnied.emvnfccard.fragment.SimplePayFragment;
 import com.github.devnied.emvnfccard.fragment.ViewPagerFragment;
 import com.github.devnied.emvnfccard.utils.ConstantUtils;
 
@@ -32,9 +34,10 @@ import de.keyboardsurfer.android.widget.crouton.Crouton;
 
 
 public class SimplePayActivity extends FragmentActivity implements AdapterView.OnItemClickListener, View.OnClickListener  {
-    ArrayList<Integer> price = new ArrayList<Integer>();
-    public final static String EXTRA_PRICE = "com.github.devnied.emvnfccard.PRICE";
-    Button oneButton, twoButton, threeButton, fourButton, fiveButton, sixButton, sevenButton, eightButton, nineButton, zeroButton, back;
+
+    private ArrayList<Integer> price = new ArrayList<Integer>();
+    Button oneButton, twoButton, threeButton, fourButton, fiveButton, sixButton, sevenButton, eightButton, nineButton, zeroButton;
+    ImageView erase;
     /**
      * last selected Menu
      */
@@ -115,7 +118,7 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
         eightButton = (Button) findViewById(R.id.numberEight);
         nineButton = (Button) findViewById(R.id.numberNine);
         zeroButton = (Button) findViewById(R.id.numberZero);
-        back = (Button) findViewById(R.id.numberBack);
+        erase = (ImageView) findViewById(R.id.erase);
 
 
 
@@ -130,7 +133,7 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
         nineButton.setOnClickListener(this);
         zeroButton.setOnClickListener(this);
 
-        back.setOnClickListener(this);
+        erase.setOnClickListener(this);
 
     }
 
@@ -168,7 +171,7 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
                 price.add(0);
                 break;
 
-            case R.id.numberBack:
+            case R.id.erase:
                 TextView tx = (TextView) findViewById(R.id.edit_price);
                 String str = tx.getText().toString();
                 tx.setText("");
@@ -179,12 +182,15 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
             default:
                 break;
         }
-        TextView editText = (TextView) findViewById(R.id.edit_price);
 
-        String n = price.get(0).toString();
-        editText = (TextView) findViewById(R.id.edit_price);
-        editText.append(n);
-        price.clear();
+        TextView editText;
+        for (int i = 0; i < price.size(); i++){
+            String n = price.get(i).toString();
+            editText = (TextView) findViewById(R.id.edit_price);
+            editText.append(n);
+            price.clear();
+        }
+
     }
 
     @Override
@@ -209,20 +215,6 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
         return super.onOptionsItemSelected(item);
     }
 
-   /* public void onClick(final View v) {
-        if (mDrawerListView != null) {
-            mDrawerListView.performItemClick(mDrawerListView, 2, mDrawerListView.getItemIdAtPosition(2));
-        }
-
-    }*/
-
-
-
-    /*
-    public void goPay(View view) {
-        Intent intent = new Intent(this, ScanActivity.class);
-        startActivity(intent);
-    } */
 
     @Override
     public void onItemClick(final AdapterView<?> parent, final View view, final int position, final long id) {
@@ -238,6 +230,12 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
                     break;
                 case ConstantUtils.ABOUT:
                     fragment = new AboutFragment();
+                    break;
+                case ConstantUtils.SIMPLEPAY:
+                    fragment = new SimplePayFragment();
+                    break;
+                case ConstantUtils.LOGOUT:
+                    fragment = new LogOutFragment();
                     break;
                 default:
                     break;
@@ -258,10 +256,10 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
 
 
 
-    public void quickPay(View view) {
+    public void goPay(View view) {
         Intent intent = new Intent(this, ScanActivity.class);
         String price = ((TextView) findViewById(R.id.edit_price)).getText().toString();
-        intent.putExtra(EXTRA_PRICE, price);
+        intent.putExtra("price", price);
         startActivity(intent);
     }
 

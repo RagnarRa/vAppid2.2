@@ -81,14 +81,13 @@
 
         <activity
             android:name=".activity.SimplePayActivity"
-            android:label="Simple Pay">
+            android:label="Snjall Borgun">
             android:windowSoftInputMode="stateHidden"
         </activity>
 
         <activity
             android:name=".activity.ManualPayByCardActivity"
-            android:label="Manual Pay By Card">
-            android:windowSoftInputMode="stateHidden"
+            android:label="Skrá korta upplýsingar">
         </activity>
 
 

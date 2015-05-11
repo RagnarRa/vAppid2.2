@@ -16,14 +16,12 @@ import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.devnied.emvnfccard.BuildConfig;
@@ -34,6 +32,7 @@ import com.github.devnied.emvnfccard.fragment.AboutFragment;
 import com.github.devnied.emvnfccard.fragment.BillingFragment;
 import com.github.devnied.emvnfccard.fragment.ConfigurationFragment;
 import com.github.devnied.emvnfccard.fragment.IRefreshable;
+import com.github.devnied.emvnfccard.fragment.SimplePayFragment;
 import com.github.devnied.emvnfccard.fragment.ViewPagerFragment;
 import com.github.devnied.emvnfccard.interfaces.ScanHandler;
 import com.github.devnied.emvnfccard.model.EmvCard;
@@ -137,13 +136,23 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 	 */
 	private byte[] lastAts;
 
+	String newString;
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-        Intent intent = getIntent();
 
+		Bundle extras = getIntent().getExtras();
+		if(extras == null) {
+			newString= null;
+		} else {
+			newString= extras.getString("price");
+		}
+
+		Toast.makeText(getApplicationContext(), newString,
+				Toast.LENGTH_LONG).show();
 
 		if (Build.VERSION.SDK_INT >= 19) {
 			// create our manager instance after the content view is set
