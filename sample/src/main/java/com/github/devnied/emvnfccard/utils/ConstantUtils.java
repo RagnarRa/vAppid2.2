@@ -23,6 +23,10 @@ public final class ConstantUtils {
 	 */
 	public static final int ABOUT = 2;
 
+	public static final int SIMPLEPAY = 3;
+
+	public static final int LOGOUT = 4;
+
 	/**
 	 * Intent result code for billing
 	 */

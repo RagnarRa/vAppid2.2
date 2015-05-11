@@ -1,11 +1,5 @@
 package com.github.devnied.emvnfccard.adapter;
 
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +12,12 @@ import com.github.devnied.emvnfccard.R;
 import com.github.devnied.emvnfccard.utils.ViewHolder;
 import com.github.devnied.emvnfccard.utils.ViewUtils;
 
+import java.util.AbstractMap;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
 /**
  * Menu Adapter to display menu item
  * 
@@ -26,7 +26,7 @@ import com.github.devnied.emvnfccard.utils.ViewUtils;
  */
 public class MenuDrawerAdapter extends BaseAdapter {
 
-	public List<Entry<Integer, String>> mData = new ArrayList<Map.Entry<Integer, String>>(3);
+	public List<Entry<Integer, String>> mData = new ArrayList<Map.Entry<Integer, String>>(5);
 
 	private Context mContext;
 
@@ -38,6 +38,10 @@ public class MenuDrawerAdapter extends BaseAdapter {
 				.getStringArray(R.array.navigation_items)[1]));
 		mData.add(new AbstractMap.SimpleImmutableEntry<Integer, String>(R.drawable.ic_fa_info_circle, pContext.getResources()
 				.getStringArray(R.array.navigation_items)[2]));
+		mData.add(new AbstractMap.SimpleImmutableEntry<Integer, String>(R.drawable.ic_fa_info_circle, pContext.getResources()
+				.getStringArray(R.array.navigation_items)[3]));
+		mData.add(new AbstractMap.SimpleImmutableEntry<Integer, String>(R.drawable.ic_fa_info_circle, pContext.getResources()
+				.getStringArray(R.array.navigation_items)[4]));
 	}
 
 	@Override

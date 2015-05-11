@@ -22,6 +22,8 @@ import com.github.devnied.emvnfccard.fragment.AboutFragment;
 import com.github.devnied.emvnfccard.fragment.BillingFragment;
 import com.github.devnied.emvnfccard.fragment.ConfigurationFragment;
 import com.github.devnied.emvnfccard.fragment.IRefreshable;
+import com.github.devnied.emvnfccard.fragment.LogOutFragment;
+import com.github.devnied.emvnfccard.fragment.SimplePayFragment;
 import com.github.devnied.emvnfccard.fragment.ViewPagerFragment;
 import com.github.devnied.emvnfccard.utils.ConstantUtils;
 
@@ -213,27 +215,6 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
         return super.onOptionsItemSelected(item);
     }
 
-   /* public void onClick(final View v) {
-        if (mDrawerListView != null) {
-            mDrawerListView.performItemClick(mDrawerListView, 2, mDrawerListView.getItemIdAtPosition(2));
-        }
-
-    }*/
-
-
-
-    /*
-    public void goPay(View view) {
-
-        TextView tx = (TextView) findViewById(R.id.edit_price);
-        String str = tx.getText().toString();
-
-
-
-        Intent intent = new Intent(this, ScanActivity.class);
-        intent.putExtra("price", str);
-        startActivity(intent);
-    } */
 
     @Override
     public void onItemClick(final AdapterView<?> parent, final View view, final int position, final long id) {
@@ -249,6 +230,12 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
                     break;
                 case ConstantUtils.ABOUT:
                     fragment = new AboutFragment();
+                    break;
+                case ConstantUtils.SIMPLEPAY:
+                    fragment = new SimplePayFragment();
+                    break;
+                case ConstantUtils.LOGOUT:
+                    fragment = new LogOutFragment();
                     break;
                 default:
                     break;
@@ -269,7 +256,7 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
 
 
 
-    public void quickPay(View view) {
+    public void goPay(View view) {
         Intent intent = new Intent(this, ScanActivity.class);
         String price = ((TextView) findViewById(R.id.edit_price)).getText().toString();
         intent.putExtra("price", price);

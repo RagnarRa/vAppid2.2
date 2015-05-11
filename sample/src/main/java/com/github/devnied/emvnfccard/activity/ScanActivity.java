@@ -32,6 +32,7 @@ import com.github.devnied.emvnfccard.fragment.AboutFragment;
 import com.github.devnied.emvnfccard.fragment.BillingFragment;
 import com.github.devnied.emvnfccard.fragment.ConfigurationFragment;
 import com.github.devnied.emvnfccard.fragment.IRefreshable;
+import com.github.devnied.emvnfccard.fragment.SimplePayFragment;
 import com.github.devnied.emvnfccard.fragment.ViewPagerFragment;
 import com.github.devnied.emvnfccard.model.EmvCard;
 import com.github.devnied.emvnfccard.model.EmvTransactionRecord;
@@ -485,6 +486,9 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 			case ConstantUtils.ABOUT:
 				fragment = new AboutFragment();
 				break;
+				case ConstantUtils.SIMPLEPAY:
+					fragment = new SimplePayFragment();
+					break;
 			default:
 				break;
 			}
