@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.github.devnied.emvnfccard.R;
+import com.github.devnied.emvnfccard.interfaces.ScanHandler;
 import com.github.devnied.emvnfccard.utils.CroutonUtils;
 import com.github.devnied.emvnfccard.utils.CroutonUtils.CoutonColor;
 
@@ -22,9 +23,14 @@ import com.github.devnied.emvnfccard.utils.CroutonUtils.CoutonColor;
  * @author Millau Julien
  *
  */
-public class AboutFragment extends Fragment {
+public class AboutFragment extends Fragment implements ScanHandler {
 
-	/**
+    @Override
+    public void setAmount(String amount) {
+
+    }
+
+    /**
 	 * Custom LinkMovementMethod for catching impossible action
 	 *
 	 * @author MILLAU Julien

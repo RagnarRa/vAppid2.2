@@ -139,4 +139,13 @@
     <string name="cancel">Hætta við</string>
     <string name="register">Nýskrá</string>
     <string name="dialog_login_title">Innskráning</string>
+    <string name="title_simple_pay">Simple Pay Activity</string>
+    <string name="text_total">Heildarupphæð: 0</string>
+
+   <string name="text_qty">Magn:</string>
+   <string name="button_minus">-</string>
+   <string name="button_plus">+</string>
+   <string name="hint_amount">Upphæð:</string>
+   <string name="button_delete">Eyða</string>
+   <string name="hint_search">Leita</string>
 </resources>

@@ -17,6 +17,7 @@ import com.github.devnied.emvnfccard.fragment.viewPager.IFragment;
 import com.github.devnied.emvnfccard.fragment.viewPager.impl.CardDetailFragment;
 import com.github.devnied.emvnfccard.fragment.viewPager.impl.LogFragment;
 import com.github.devnied.emvnfccard.fragment.viewPager.impl.TransactionHistoryFragment;
+import com.github.devnied.emvnfccard.interfaces.ScanHandler;
 import com.github.devnied.emvnfccard.model.EmvTransactionRecord;
 import com.github.devnied.emvnfccard.view.SlidingTabLayout;
 
@@ -29,7 +30,7 @@ import java.util.List;
  * @author Millau Julien
  *
  */
-public class ViewPagerFragment extends Fragment implements IRefreshable {
+public class ViewPagerFragment extends Fragment implements IRefreshable, ScanHandler {
 
 	/**
 	 * Tab layout
@@ -68,6 +69,9 @@ public class ViewPagerFragment extends Fragment implements IRefreshable {
 		}
 		// Add fragments
 		fragments.add(CardDetailFragment.newInstance(mContentActivity.getCard(), getString(R.string.viewpager_carddetail)));
+
+
+
 		//fragments.add(TransactionHistoryFragment.newInstance(transactions, getString(R.string.viewpager_transactions)));
 		//fragments.add(LogFragment.newInstance(mContentActivity.getLog(), getString(R.string.viewpager_log)));
 		// View pager
@@ -123,4 +127,8 @@ public class ViewPagerFragment extends Fragment implements IRefreshable {
 		}
 	}
 
+    @Override
+    public void setAmount(String amount) {
+
+    }
 }

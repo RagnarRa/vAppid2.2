@@ -35,6 +35,7 @@ import com.github.devnied.emvnfccard.fragment.BillingFragment;
 import com.github.devnied.emvnfccard.fragment.ConfigurationFragment;
 import com.github.devnied.emvnfccard.fragment.IRefreshable;
 import com.github.devnied.emvnfccard.fragment.ViewPagerFragment;
+import com.github.devnied.emvnfccard.interfaces.ScanHandler;
 import com.github.devnied.emvnfccard.model.EmvCard;
 import com.github.devnied.emvnfccard.model.EmvTransactionRecord;
 import com.github.devnied.emvnfccard.model.enums.CountryCodeEnum;
@@ -143,6 +144,7 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 		setContentView(R.layout.main);
         Intent intent = getIntent();
 
+
 		if (Build.VERSION.SDK_INT >= 19) {
 			// create our manager instance after the content view is set
 			tintManager = new SystemBarTintManager(this);
@@ -193,10 +195,11 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 
 		}
 
-        /* Tharf ad access-a ur fragment..
+       /* //Tharf ad access-a ur fragment..
         total = intent.getStringExtra(SimplePayActivity.EXTRA_PRICE);
         TextView text = (TextView) findViewById(R.id.text_total);
-        text.setText("Upphæð: " + total); */
+        text.setText("Upphæð: " + total);
+        */
 	}
 
 	/**
@@ -460,28 +463,35 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 			mRefreshableContent.get().update();
 		}
 	}
-
+    ScanHandler fragment = null;
 	@Override
 	public void onItemClick(final AdapterView<?> parent, final View view, final int position, final long id) {
         if (mLastSelectedMenu != position) {
-			Fragment fragment = null;
+
 			switch (position) {
-			case ConstantUtils.CARDS_DETAILS:
-				fragment = new ViewPagerFragment();
-				refreshContent();
-				break;
-			case ConstantUtils.CONFIGURATION:
-				fragment = new ConfigurationFragment();
-				break;
-			case ConstantUtils.ABOUT:
-				fragment = new AboutFragment();
-				break;
-			default:
+                case ConstantUtils.CARDS_DETAILS:
+                    fragment = (ScanHandler)new ViewPagerFragment();
+                    refreshContent();
+                    break;
+                case ConstantUtils.CONFIGURATION:
+                    fragment = (ScanHandler)new ConfigurationFragment();
+                    break;
+                case ConstantUtils.ABOUT:
+                    fragment = (ScanHandler)new AboutFragment();
+                    break;
+                default:
 				break;
 			}
             //Hendum basically thessu fragment inn i stad thess sem er fyrir..
 			if (fragment != null) {
-				getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, fragment).commit();
+                //Added cast to fragment
+				getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, (Fragment) fragment).commit();
+
+                //Start
+                /*
+                Intent intent = getIntent();
+                total = intent.getStringExtra(SimplePayActivity.EXTRA_PRICE);
+                fragment.setAmount("Upphæð: " + total); */
 			}
 			mLastSelectedMenu = position;
 		}

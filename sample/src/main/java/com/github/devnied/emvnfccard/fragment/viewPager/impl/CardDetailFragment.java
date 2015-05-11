@@ -18,6 +18,7 @@ import com.github.devnied.emvnfccard.activity.SimplePayActivity;
 import com.github.devnied.emvnfccard.activity.testActivity;
 import com.github.devnied.emvnfccard.fragment.viewPager.AbstractFragment;
 import com.github.devnied.emvnfccard.fragment.viewPager.IFragment;
+import com.github.devnied.emvnfccard.interfaces.ScanHandler;
 import com.github.devnied.emvnfccard.model.EmvCard;
 import com.github.devnied.emvnfccard.utils.CardUtils;
 import com.github.devnied.emvnfccard.utils.ViewUtils;
@@ -33,7 +34,7 @@ import java.util.Locale;
  * @author Millau Julien
  *
  */
-public class CardDetailFragment extends AbstractFragment {
+public class CardDetailFragment extends AbstractFragment implements ScanHandler {
 
 	/**
 	 * Card to display
@@ -75,6 +76,8 @@ public class CardDetailFragment extends AbstractFragment {
 	 */
 	private LinearLayout mBanner;
 
+    private TextView mAmount;
+
 	/**
 	 * Method used to create a new instance of the fragment
 	 *
@@ -110,6 +113,7 @@ public class CardDetailFragment extends AbstractFragment {
 		mImageView = (ImageView) view.findViewById(R.id.type);
 		mExtendedLayout = (TableLayout) view.findViewById(R.id.extended_content);
 		mBanner = (LinearLayout) getActivity().findViewById(R.id.banner);
+        mAmount = (TextView) getActivity().findViewById(R.id.text_total);
 		// Set OCR-A typeface
 		ViewUtils.setTypeFace(EmvApplication.sTypeface, mCardNumber, mCardValidity);
 		// Update content
@@ -213,7 +217,15 @@ public class CardDetailFragment extends AbstractFragment {
 	 * @param mCard
 	 *            the mCard to set
 	 */
-	public void setCard(final EmvCard mCard) {
+
+    public void setCard(final EmvCard mCard) {
 		this.mCard = mCard;
 	}
+
+    @Override
+    public void setAmount(String amount) {
+        this.mAmount.setText(amount);
+    }
+
+
 }
