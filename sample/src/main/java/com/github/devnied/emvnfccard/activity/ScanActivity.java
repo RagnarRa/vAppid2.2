@@ -134,11 +134,23 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 	 */
 	private byte[] lastAts;
 
+	String newString;
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+
+		Bundle extras = getIntent().getExtras();
+		if(extras == null) {
+			newString= null;
+		} else {
+			newString= extras.getString("price");
+		}
+
+		Toast.makeText(getApplicationContext(), newString,
+				Toast.LENGTH_LONG).show();
 
 		if (Build.VERSION.SDK_INT >= 19) {
 			// create our manager instance after the content view is set
