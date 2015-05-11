@@ -25,12 +25,14 @@ public class MenuActivity extends FragmentActivity
 
     public void registerUser(View view) {
         //Okkar context.. svo class a activity sem tekur vid..
+        /*
         Intent intent = new Intent(MenuActivity.this, RegisterUserActivity.class);
-        startActivity(intent); //Kveikjum a activity..
+        startActivity(intent); //Kveikjum a activity.. */
+        Intent intent = new Intent(this, CartActivity.class);
+        startActivity(intent);
     }
 
     public void logIn(View view) {
-        Log.d("lol", "hhhiiiiiiiii");
         /*
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent); */
@@ -46,13 +48,11 @@ public class MenuActivity extends FragmentActivity
         // User touched the dialog's positive button
         Intent intent = new Intent(this, SimplePayActivity.class);
         startActivity(intent);
-        Log.d("whyy", "Hi");
     }
 
     @Override
     public void onDialogNegativeClick(DialogFragment dialog) {
         // User touched the dialog's negative button
-        Log.d("waii", "Hello");
     }
 
     @Override

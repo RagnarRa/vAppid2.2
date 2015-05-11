@@ -70,7 +70,7 @@ import fr.devnied.bitlib.BytesUtils;
  */
 @SuppressLint("InlinedApi")
 public class ScanActivity extends FragmentActivity implements OnItemClickListener, IContentActivity, OnClickListener {
-
+    String total;
 	/**
 	 * Nfc utils
 	 */
@@ -201,6 +201,11 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 
 
 		}
+
+        /* Tharf ad access-a ur fragment..
+        total = intent.getStringExtra(SimplePayActivity.EXTRA_PRICE);
+        TextView text = (TextView) findViewById(R.id.text_total);
+        text.setText("Upphæð: " + total); */
 	}
 
 	/**
@@ -467,7 +472,7 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 
 	@Override
 	public void onItemClick(final AdapterView<?> parent, final View view, final int position, final long id) {
-		if (mLastSelectedMenu != position) {
+        if (mLastSelectedMenu != position) {
 			Fragment fragment = null;
 			switch (position) {
 			case ConstantUtils.CARDS_DETAILS:
@@ -483,6 +488,7 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 			default:
 				break;
 			}
+            //Hendum basically thessu fragment inn i stad thess sem er fyrir..
 			if (fragment != null) {
 				getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, fragment).commit();
 			}
@@ -556,4 +562,8 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 		return lastAts;
 	}
 
+    public void enterCardInfo(View view) {
+        Intent intent = new Intent(this, ManualPayByCardActivity.class);
+        startActivity(intent);
+    }
 }

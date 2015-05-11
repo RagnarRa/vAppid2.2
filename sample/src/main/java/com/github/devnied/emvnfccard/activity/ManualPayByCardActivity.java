@@ -34,13 +34,11 @@ public class ManualPayByCardActivity extends Activity {
             case R.id.radio_credit:
                 if (checked)
                     //Display credit form
-                    Log.d("waii", "Hello");
                     dcForm.setVisibility(View.GONE);
                     ccForm.setVisibility(View.VISIBLE);
                     break;
             case R.id.radio_debit:
                 if (checked)
-                    Log.d("waii2", "Hi");
                     ccForm.setVisibility(View.GONE);
                     dcForm.setVisibility(View.VISIBLE);
                     //Display debit form
