@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.github.devnied.emvnfccard.R;
 
 
-public class ManualPayByCardActivity extends Activity {
+public class ManualPayByCardActivity extends Activity{
 
     private ProgressDialog progress;
     @Override
@@ -21,6 +21,8 @@ public class ManualPayByCardActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manual_pay_by_card);
         progress = new ProgressDialog(this);
+
+
 
 
        /* Button btn = (Button) findViewById(R.id.ccPay);

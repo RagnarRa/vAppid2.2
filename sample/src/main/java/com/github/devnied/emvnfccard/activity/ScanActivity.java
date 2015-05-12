@@ -30,10 +30,11 @@ import com.github.devnied.emvnfccard.adapter.MenuDrawerAdapter;
 import com.github.devnied.emvnfccard.enums.EmvCardScheme;
 import com.github.devnied.emvnfccard.fragment.AboutFragment;
 import com.github.devnied.emvnfccard.fragment.BillingFragment;
+import com.github.devnied.emvnfccard.fragment.CartFragment;
 import com.github.devnied.emvnfccard.fragment.ConfigurationFragment;
 import com.github.devnied.emvnfccard.fragment.IRefreshable;
+import com.github.devnied.emvnfccard.fragment.LogOutFragment;
 import com.github.devnied.emvnfccard.fragment.SimplePayFragment;
-import com.github.devnied.emvnfccard.fragment.ViewPagerFragment;
 import com.github.devnied.emvnfccard.model.EmvCard;
 import com.github.devnied.emvnfccard.model.EmvTransactionRecord;
 import com.github.devnied.emvnfccard.model.enums.CountryCodeEnum;
@@ -203,10 +204,11 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 
 		}
 
-        /* Tharf ad access-a ur fragment..
+       /* //Tharf ad access-a ur fragment..
         total = intent.getStringExtra(SimplePayActivity.EXTRA_PRICE);
         TextView text = (TextView) findViewById(R.id.text_total);
-        text.setText("Upphæð: " + total); */
+        text.setText("Upphæð: " + total);
+        */
 	}
 
 	/**
@@ -473,26 +475,28 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 
 	@Override
 	public void onItemClick(final AdapterView<?> parent, final View view, final int position, final long id) {
-        if (mLastSelectedMenu != position) {
+		if (mLastSelectedMenu != position) {
 			Fragment fragment = null;
 			switch (position) {
-			case ConstantUtils.CARDS_DETAILS:
-				fragment = new ViewPagerFragment();
-				refreshContent();
-				break;
-			case ConstantUtils.CONFIGURATION:
-				fragment = new ConfigurationFragment();
-				break;
-			case ConstantUtils.ABOUT:
-				fragment = new AboutFragment();
-				break;
+				case ConstantUtils.CART:
+					fragment = new CartFragment();
+					//refreshContent();
+					break;
+				case ConstantUtils.CONFIGURATION:
+					fragment = new ConfigurationFragment();
+					break;
+				case ConstantUtils.ABOUT:
+					fragment = new AboutFragment();
+					break;
 				case ConstantUtils.SIMPLEPAY:
 					fragment = new SimplePayFragment();
 					break;
-			default:
-				break;
+				case ConstantUtils.LOGOUT:
+					fragment = new LogOutFragment();
+					break;
+				default:
+					break;
 			}
-            //Hendum basically thessu fragment inn i stad thess sem er fyrir..
 			if (fragment != null) {
 				getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, fragment).commit();
 			}
@@ -500,6 +504,47 @@ public class ScanActivity extends FragmentActivity implements OnItemClickListene
 		}
 		mDrawerLayout.closeDrawer(mDrawerListView);
 	}
+
+  /*  ScanHandler fragment = null;
+	@Override
+	public void onItemClick(final AdapterView<?> parent, final View view, final int position, final long id) {
+        if (mLastSelectedMenu != position) {
+
+			switch (position) {
+                case ConstantUtils.CARDS_DETAILS:
+                    fragment = (ScanHandler)new ViewPagerFragment();
+                    refreshContent();
+                    break;
+                case ConstantUtils.CONFIGURATION:
+                    fragment = (ScanHandler)new ConfigurationFragment();
+                    break;
+                case ConstantUtils.ABOUT:
+                    fragment = (ScanHandler)new AboutFragment();
+                    break;
+				case ConstantUtils.SIMPLEPAY:
+					fragment = (ScanHandler)new SimplePayFragment();
+					break;
+				case ConstantUtils.LOGOUT:
+					fragment = (ScanHandler) new LogOutFragment();
+					break;
+                default:
+				break;
+			}
+            //Hendum basically thessu fragment inn i stad thess sem er fyrir..
+			if (fragment != null) {
+                //Added cast to fragment
+				getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, (Fragment) fragment).commit();
+
+                //Start
+                /*
+                Intent intent = getIntent();
+                total = intent.getStringExtra(SimplePayActivity.EXTRA_PRICE);
+                fragment.setAmount("Upphæð: " + total); */
+		/*	}
+			mLastSelectedMenu = position;
+		}
+		mDrawerLayout.closeDrawer(mDrawerListView);
+	}*/
 
 	@Override
 	public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {

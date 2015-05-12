@@ -11,7 +11,7 @@ public final class ConstantUtils {
 	/**
 	 * Cards details
 	 */
-	public static final int CARDS_DETAILS = 0;
+	public static final int CART = 0;
 
 	/**
 	 * Configuration

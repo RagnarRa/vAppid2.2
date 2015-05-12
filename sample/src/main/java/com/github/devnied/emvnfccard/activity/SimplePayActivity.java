@@ -20,11 +20,11 @@ import com.github.devnied.emvnfccard.R;
 import com.github.devnied.emvnfccard.adapter.MenuDrawerAdapter;
 import com.github.devnied.emvnfccard.fragment.AboutFragment;
 import com.github.devnied.emvnfccard.fragment.BillingFragment;
+import com.github.devnied.emvnfccard.fragment.CartFragment;
 import com.github.devnied.emvnfccard.fragment.ConfigurationFragment;
 import com.github.devnied.emvnfccard.fragment.IRefreshable;
 import com.github.devnied.emvnfccard.fragment.LogOutFragment;
 import com.github.devnied.emvnfccard.fragment.SimplePayFragment;
-import com.github.devnied.emvnfccard.fragment.ViewPagerFragment;
 import com.github.devnied.emvnfccard.utils.ConstantUtils;
 
 import java.lang.ref.WeakReference;
@@ -221,8 +221,8 @@ public class SimplePayActivity extends FragmentActivity implements AdapterView.O
         if (mLastSelectedMenu != position) {
             Fragment fragment = null;
             switch (position) {
-                case ConstantUtils.CARDS_DETAILS:
-                    fragment = new ViewPagerFragment();
+                case ConstantUtils.CART:
+                    fragment = new CartFragment();
                     refreshContent();
                     break;
                 case ConstantUtils.CONFIGURATION:

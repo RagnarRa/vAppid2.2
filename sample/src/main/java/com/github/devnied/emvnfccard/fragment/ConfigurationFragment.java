@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.github.devnied.emvnfccard.R;
 import com.github.devnied.emvnfccard.activity.ScanActivity;
+import com.github.devnied.emvnfccard.interfaces.ScanHandler;
 import com.github.devnied.emvnfccard.utils.CroutonUtils;
 import com.github.devnied.emvnfccard.utils.CroutonUtils.CoutonColor;
 
@@ -17,7 +18,7 @@ import com.github.devnied.emvnfccard.utils.CroutonUtils.CoutonColor;
  * @author Millau Julien
  *
  */
-public class ConfigurationFragment extends PreferenceFragment {
+public class ConfigurationFragment extends PreferenceFragment implements ScanHandler {
 
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
@@ -49,4 +50,9 @@ public class ConfigurationFragment extends PreferenceFragment {
 		view.setBackgroundColor(getResources().getColor(android.R.color.white));
 		super.onViewCreated(view, savedInstanceState);
 	}
+
+    @Override
+    public void setAmount(String amount) {
+
+    }
 }

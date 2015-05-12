@@ -3,10 +3,13 @@ package com.github.devnied.emvnfccard.activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.github.devnied.emvnfccard.R;
 import com.github.devnied.emvnfccard.adapter.ListViewInventoryAdapter;
@@ -19,6 +22,7 @@ public class CartActivity extends ListActivity {
     ArrayList<Integer> quantities; //1 to 1 correspondance with prices
     ArrayList<String> listItems;
     ArrayList<String> inventoryItems; //items for sale
+    Integer currentTotal;
 
     //DEFINING A STRING ADAPTER WHICH WILL HANDLE THE DATA OF THE LISTVIEW
     //ArrayAdapter<Integer> adapter;
@@ -28,6 +32,7 @@ public class CartActivity extends ListActivity {
     public final static String EXTRA_CART_QUANTITIES = "com.rbrjas.vappid.CART_QUANTITIES";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        currentTotal = 0;
         listItems = new ArrayList<String>();
         prices = new ArrayList<Integer>();
         quantities = new ArrayList<Integer>();
@@ -38,19 +43,21 @@ public class CartActivity extends ListActivity {
         adapter = new ListViewRemovableAdapter(listItems, this, prices, quantities);
         setListAdapter(adapter);
 
-
+        //Set up the inventory adapter..
         inventoryItems = new ArrayList<String>();
-        inventoryItems.add("Bindi");
-        inventoryItems.add("Slaufa");
+        inventoryItems.add("Bindi 3000");
+        inventoryItems.add("Slaufa 3500");
         inventoryAdapter = new ListViewInventoryAdapter(inventoryItems, this);
 
         ListView lwInventory = (ListView) findViewById(R.id.inventory_list);
         lwInventory.setAdapter(inventoryAdapter);
 
-
-
+        //Tengja filter
+        EditText filter = (EditText) findViewById(R.id.edit_filter);
+        filter.addTextChangedListener(searchTextWatcher);
+        /*
         EditText qty = (EditText) findViewById(R.id.quantity);
-        qty.setText("1");
+        qty.setText("1"); */
     }
 
 
@@ -75,6 +82,7 @@ public class CartActivity extends ListActivity {
         startActivity(intent);
     }
 
+    /*
     public void addQty(View view){
         EditText qty = (EditText) findViewById(R.id.quantity);
         Integer quantity = Integer.parseInt(qty.getText().toString());
@@ -87,10 +95,75 @@ public class CartActivity extends ListActivity {
         Integer quantity = Integer.parseInt(qty.getText().toString());
         quantity--;
         qty.setText(quantity.toString());
-    }
+    } */
 
     public void addToCart(String item) {
         Log.d("hi2u", item);
+        Integer cartIndex = containsString(item);
+        Integer priceBeingAdded = 0;
+        if (cartIndex == -1) {
+            listItems.add(item + "x1");
+            String[] parts = item.split(" ");
+            priceBeingAdded = Integer.parseInt(parts[parts.length - 1]);
+            prices.add(priceBeingAdded);
+            quantities.add(1);
+        }
+
+        else {
+            /* Thetta stak er til i index cartIndex */
+            Integer quantity = quantities.get(cartIndex) + 1;
+            quantities.set(cartIndex, quantity);
+            String oldListItem = listItems.get(cartIndex);
+            Integer quantityStartsAt = oldListItem.lastIndexOf("x");
+            String newListItem = oldListItem.substring(0, (quantityStartsAt + 1)) + quantity.toString();
+            listItems.set(cartIndex, newListItem);
+            priceBeingAdded = prices.get(cartIndex);
+        }
+
+        TextView total = (TextView) findViewById(R.id.text_total);
+        currentTotal += priceBeingAdded;
+        total.setText("Heildarupphæð: " + currentTotal.toString());
+
+        adapter.notifyDataSetChanged();
     }
+
+    public void recalculateTotal() {
+        currentTotal = 0;
+        for (int i = 0; i < prices.size(); i++) {
+            currentTotal += prices.get(i) * quantities.get(i);
+        }
+
+        TextView total = (TextView) findViewById(R.id.text_total);
+        total.setText("Heildarupphæð: " + currentTotal.toString());
+    }
+
+    /* Ef listItems er med thetta item.. skilum index.. annars -1.. mix.. */
+    private int containsString(String str) {
+        for (int i = 0; i < listItems.size(); i++) {
+            if (listItems.get(i).startsWith(str)) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    private TextWatcher searchTextWatcher = new TextWatcher() {
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            // ignore
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            // ignore
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            //Log.d(Constants.TAG, "*** Search value changed: " + s.toString());
+            inventoryAdapter.getFilter().filter(s.toString());
+        }
+    };
 }
 
