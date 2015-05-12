@@ -79,6 +79,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="cccpayed"
             android:text="@string/button_pay_manual"
             android:layout_gravity="right"/>
     </LinearLayout>
@@ -116,6 +117,7 @@
             android:inputType="date"/>
         <Button
             android:layout_width="wrap_content"
+            android:onClick="cccpayed"
             android:layout_height="wrap_content"
             android:text="@string/button_pay_manual"
             android:layout_gravity="right"/>
